@@ -1,15 +1,6 @@
 # vamsins.py
+def add(a, b):
+    return a + b
 
-from fastapi import FastAPI
-
-app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    return {"message": "Hello from Vamsin App!"}
-
-
-@app.get("/health")
-def health_check():
-    return {"status": "OK"}
+def greet(name):
+    return f"Hello, {name}!"
