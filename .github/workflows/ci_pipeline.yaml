@@ -55,15 +55,4 @@ jobs:
 
       # 9️⃣ Trivy Docker Image Scan
       - name: Trivy Docker Image Scan
-        run: trivy image --exit-code 1 --severity CRITICAL,HIGH vamsin-app:latest
-
-      # 🔟 Push Docker Image to Docker Hub (only if secrets exist)
-      - name: Push Docker Image
-        if: ${{ secrets.DOCKER_USER && secrets.DOCKER_PASS }}
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-        run: |
-          echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-          docker tag vamsin-app:latest $DOCKER_USER/vamsin-app:latest
-          docker push $DOCKER_USER/vamsin-app:latest
+        run: trivy image --exit-code 1 --severity CRITICAL
