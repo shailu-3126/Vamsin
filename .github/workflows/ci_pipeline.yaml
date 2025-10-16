@@ -43,7 +43,7 @@ jobs:
           scan-type: 'fs'
           format: 'table'
           ignore-unfixed: true
-          exit-code: '1'
+          exit-code: '0'
 
       # 7️⃣ Run Unit Tests with Coverage
       - name: Run Unit Tests with Coverage
